@@ -1,16 +1,17 @@
 import React from 'react'
-
-import Left from './home/left/left'
+ 
 import Right from './home/right/Right'
+import Left from './home/left/Left'
 function App() {
   return (
     <>
 
     <div className='flex h-screen'>
+
     <Left></Left>
     <Right></Right>
-    </div>
-    
+
+    </div>    
     
     
     </>
