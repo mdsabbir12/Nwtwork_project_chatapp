@@ -2,6 +2,7 @@ import React from "react";
 import { PiChatsFill } from "react-icons/pi";
 import { TbLogout2 } from "react-icons/tb";
 import { IoCall } from "react-icons/io5";
+import { IoMdSearch } from "react-icons/io";
 export default function Chatuser() {
   return (
     <>
@@ -25,6 +26,9 @@ export default function Chatuser() {
           <button className="px-3">
             <IoCall className="text-5xl p-2 hover:bg-black-600 rounded-full duration-300" />
           </button>
+          <button>
+            <IoMdSearch className='text-5xl p-2 hover:bg-gray-600 rounded-full duration-300'/>
+            </button>
         </div>
       </div>
     </>
