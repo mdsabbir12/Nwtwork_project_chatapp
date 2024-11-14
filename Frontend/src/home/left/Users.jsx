@@ -5,9 +5,9 @@ function Users() {
   return (
     <>
 
-    <div className='max-h-[520px] overflow-y-auto'> 
+    <div className='max-h-[520px] overflow-y-auto  '> 
       
-    <User></User>
+    <User></User> 
     <User></User>
     <User></User>
     <User></User>

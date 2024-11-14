@@ -10,7 +10,7 @@ export default function Left() {
     <div className='w-[30%] bg-black text-white'>
     
 
-    <h1 className='font-bold text-3xl p-2 px-11'>Chats</h1>
+    <h1 className='font-bold text-3xl p-2 px-11'>Green Chats</h1>
 
 
     <Search></Search>
