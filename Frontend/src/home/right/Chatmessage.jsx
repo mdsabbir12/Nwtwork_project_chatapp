@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Chatmessage() {
   return (
-    <div className="max-h-[520px] overflow-y-auto">
+    <div className="max-h-[540px] overflow-y-auto">
       <Get></Get>
       <Get></Get>
       <Get></Get>
