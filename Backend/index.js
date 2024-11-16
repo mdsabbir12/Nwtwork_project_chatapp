@@ -1,10 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-const app = express()
+import userRoute from "./route/user.route.js";
+
+
+const app = express();
+app.use(express.json());
 dotenv.config();
-const port = process.env.port || 5001;
-const URL = process.env.Mongodb_URL;
+const PORT = process.env.PORT || 5001;
+const URL = process.env.Mongodb_URL; 
 
 
 try{
@@ -14,6 +18,9 @@ try{
   console.log("error");
 }
 
-app.listen(port, () => {
-  console.log(`Server is Running on port ${port}`)
+
+app.use("/user",userRoute);
+
+app.listen(PORT, () => {
+  console.log(`Server is Running on port ${PORT}`)
 })
