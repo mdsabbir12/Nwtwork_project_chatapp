@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    colors:{
+      'amar-white':'#d1d3c9',
+      'amar2-white':'#e8e8e8'
+    }
   },
   plugins: [
     require('daisyui'),
