@@ -32,3 +32,40 @@ export const signup = async (req,res)=>{
          res.status(500).json({message: "Server error"});
     }
 };
+
+
+export const login = async (req,res)=>{
+    try {
+        const{email,password}= req.body;
+
+        const user = await  User.findOne({email});
+        const ismatch= await bcrypt.compare(password,user.password);
+        if (!user || !ismatch) {
+            return res.status(400).json({message: "Invalid User name or password"}); 
+        }
+        createTokenandsavecookis(user._id,res);
+        res.status(201).json({
+            message:"User loging  sucessfully",
+            user:{
+              _id:user._id,
+              name:user.name,
+              email:user.email,
+            }});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: "Server Error"});
+    }
+};
+
+export const logout = async (req,res)=>{
+    try {
+        res.clearCookie("jwt");
+        res.status(201).json({
+        message:"User logout  sucessfully"});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: "Server Error"}); 
+    }
+}
+
