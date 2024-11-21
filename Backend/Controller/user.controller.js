@@ -23,7 +23,12 @@ export const signup = async (req,res)=>{
     await newuser.save()
     if(newuser){
         createTokenandsavecookis(newuser._id,res);
-        res.status(201).json({message: "User register Sucessfully",newuser});
+        res.status(201).json({message: "User register Sucessfully",
+            user:{
+            _id:newuser._id,
+            name:newuser.name,
+            email:newuser.email,
+          }});
     }
     
     } 
