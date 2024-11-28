@@ -2,8 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import exious from "axios";
 import { useAuth } from "../Context/Authprovider";
+import { Link } from "react-router-dom";
 
 export default function Login() {
+  const [authuser,setAuthUser] =useAuth();
     const {
         register,
         handleSubmit,
@@ -33,6 +35,7 @@ export default function Login() {
     
             }
             localStorage.setItem("messenger",JSON.stringify(response.data));
+            setAuthUser(response.data);
           }).catch((error)=>{
             if(error.response)
             {
@@ -100,7 +103,7 @@ export default function Login() {
             <input type="Submit" className="grow mx-[55px] btn btn-success w-[400px] h-11 my-[20px] shadow-lg font-bold text-lg" value="LOGIN" />     
             </label>
 
-            <samp className="text-nebublu mx-[60px]">Don't have any Account? <a className="text-greencl font-bold" href="#"> SIGN UP </a></samp>
+            <samp className="text-nebublu mx-[60px]">Don't have any Account? <Link to={"/signup"} className="text-greencl font-bold" href="#"> SIGN UP </Link></samp>
           </form>
         </div>
       </div>

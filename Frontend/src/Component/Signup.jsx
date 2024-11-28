@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useAuth } from "../Context/Authprovider";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [authuser,setAuthUser] =useAuth();
@@ -160,10 +161,10 @@ export default function Signup() {
 
             <span className="text-nebublu mx-[60px]">
               If you have alredy an Account?{" "}
-              <a className=" link link-success text-md font-bold" href="#">
+              <Link to={"/login"} className=" link link-success text-md font-bold" href="#">
                 {" "}
                 LOGIN{" "}
-              </a>
+              </Link>
             </span>
           </form>
         </div>
