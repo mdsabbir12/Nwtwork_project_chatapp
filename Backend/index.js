@@ -9,7 +9,9 @@ import cookieParser from "cookie-parser";
 const app = express();
 app.use(express.json());
 dotenv.config();
-app.use(cors());
+app.use(cors({
+  credentials: true,
+}));
 
 app.use(cookieParser());
 
@@ -25,7 +27,7 @@ try{
 }
 
 
-app.use("/user",userRoute);
+app.use("/api/user",userRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is Running on port ${PORT}`)

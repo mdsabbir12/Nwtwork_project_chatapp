@@ -1,20 +1,23 @@
 import React from 'react'
-import User from './User'
-
+import User from './User.jsx'
+import useGetallUsers from "../../Context/userGetallUsers.jsx"
 function Users() {
+
+  const [allUsers,setallUsers]=useGetallUsers();
+  console.log(allUsers);
+  const usersArray = allUsers?.filterallUsers || [];
   return (
     <>
 
     <div className='max-h-[520px] overflow-y-auto  '> 
       
-    <User></User> 
-    <User></User>
-    <User></User>
-    <User></User>
-    <User></User>
-    <User></User>
-    <User></User>
-    <User></User>
+    {usersArray.length > 0 ? (
+        usersArray.map((user, index) => <User key={index} user={user} />)
+      ) : (
+        <p>No users found or loading...</p>
+      )}
+    
+
     
 
     </div>

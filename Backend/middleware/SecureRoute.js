@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import User from "../model/user.model.js";
-
+//import cookies from "cookie-parser";
 
 const SecureRoute=async (req,res,next)=>{
     try {
@@ -16,11 +16,17 @@ const SecureRoute=async (req,res,next)=>{
         if(!user){
             res.status(403).json({message:"User Not found"});
         }
+        res.cookie("jwt", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "Lax",
+        });
+          
         req.user = user;
         next();
     } catch (error) {
         console.log(error);
-        req.status(501).json({message:"Internal Server Error"});
+        res.status(501).json({message:"Internal Server Error"});
     }
 }
 
