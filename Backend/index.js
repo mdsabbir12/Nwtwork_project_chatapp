@@ -3,12 +3,16 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoute from "./route/user.route.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 
 const app = express();
 app.use(express.json());
 dotenv.config();
 app.use(cors());
+
+app.use(cookieParser());
+
 const PORT = process.env.PORT || 5001;
 const URL = process.env.Mongodb_URL; 
 
