@@ -6,11 +6,12 @@ import Sendmessage from './Sendmessage'
 export default function Right() {
   return (
     <>
-    <div className='w-[70%]  bg-slate-800 text-white'>
+    <div className='w-[70%]  bg-slate-800 text-white  flex flex-col justify-between'>
        <Chatuser></Chatuser>
        <Chatmessage></Chatmessage>
-       <Sendmessage></Sendmessage>     
+       <Sendmessage></Sendmessage> 
     </div>
+    
     </>
     
   )

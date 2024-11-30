@@ -16,10 +16,6 @@ function Users() {
       ) : (
         <p>No users found or loading...</p>
       )}
-    
-
-    
-
     </div>
     </>
     

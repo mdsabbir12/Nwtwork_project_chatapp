@@ -6,6 +6,7 @@ import Logout from "./home/left/Logout";
 import Signup from "./Component/Signup";
 import Login from "./Component/Login";
 import { useAuth } from "./Context/Authprovider.jsx";
+import Loading from "./Component/Loading.jsx";
 
 export default function App() {
   const [authuser, setAuthUser] = useAuth(); // State from context
@@ -39,6 +40,7 @@ export default function App() {
         />
       </Routes>
     </BrowserRouter>
+   
   );
 }
 // const root = ReactDOM.createRoot(document.getElementById('root'));

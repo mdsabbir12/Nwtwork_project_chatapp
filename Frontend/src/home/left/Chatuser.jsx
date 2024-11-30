@@ -3,7 +3,12 @@ import { PiChatsFill } from "react-icons/pi";
 import { TbLogout2 } from "react-icons/tb";
 import { IoCall } from "react-icons/io5";
 import { IoMdSearch } from "react-icons/io";
+import useConversation from "../../Statemanage/UseConversation.js";
+
 export default function Chatuser() {
+
+  const {selectedConversation}=useConversation();
+  //console.log(selectedConversation);
   return (
     <>
       <div className="flex bg-slate-600 justify-between">
@@ -14,8 +19,8 @@ export default function Chatuser() {
             </div>
           </div>
           <div className="py-2">
-            <h1>Md. Sabbir Hossain</h1>
-            <span className="text-[12px] text-color-gray ">Online</span>
+            <h1>{selectedConversation?.name}</h1>
+            <span className="text-[12px] text-color-gray "></span>
           </div>
         </div>
 

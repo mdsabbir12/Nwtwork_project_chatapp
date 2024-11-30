@@ -1,32 +1,48 @@
 import React from "react";
+import useGetMessage from "../../Context/useGetMessage.js";
+import Loading from "../../Component/Loading.jsx"
 
 export default function Chatmessage() {
+
+  const { messages,loading } = useGetMessage();
+
+  console.log(messages);
   return (
-    <div className="max-h-[540px] overflow-y-auto">
-      <Get></Get>
-      <Get></Get>
-      <Get></Get>
-      <Get></Get>
-      <Get></Get>
-      <Get></Get>
+
+
+    <>
+
+    {/* {loading?(<Loading/>):(messages.length>0 &&messages.map((message)=>{
+      return <Get key={message._id} message={message}/>
+    }))} */}
+    <div className="max-h-[540px] overflow-y-auto ">
+    {loading?(<Loading/>):(messages.length>0 &&messages.map((message)=>{
+      return <Get key={message._id} message={message}/>
+    }))}
+      {/* <Get></Get> */}
+      {/* {messages.length > 0 ? messages.map(msg =>(
+        <p>{msg.message}</p>
+      )) : (<div>You have empty conversion!</div>)
+    } */}
     </div>
+    </>
   );
 }
 
-function Get() {
+function Get({message}) {
+  const authuser= JSON.parse(localStorage.getItem("messenger"));
+  const item=message.senderid===authuser.user._id;
+  const chatname=item?"chat-end" :"chat-start";
+  const chatcolor= item?"bg-blue-400":"";
+  
     return (
         <>
-          <div className="py-2">
-            <div className="chat chat-start">
-              <div className="chat-bubble chat-bubble-info mx-3 max-w-[50%]">Calm down, Anakin.mx-3 max-w-[55%] mx-3 max-w-[55%] mx-3 max-w-[70%] mx-3 max-w-[55%]</div>
+          <div className="py-2 ">
+            <div className={`chat ${chatname}`}>
+              <div className={`chat-bubble text-white ${chatcolor}  chat-bubble-info mx-3 max-w-[50%]`}>{message.message}</div>
             </div>
           </div>
-          <div className="chat chat-end">
-            <div className="chat-bubble chat-bubble-accent mx-3 max-w-[60%]">
-              That's never been done in the history of the Jedi. It's insulting!
-              It's insulting! It's insulting! It's insulting!It's insulting! It's insulting!
-            </div>
-          </div>
+            
         </>
       );
 }
