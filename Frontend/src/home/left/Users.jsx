@@ -1,6 +1,6 @@
 import React from 'react'
 import User from './User.jsx'
-import useGetallUsers from "../../Context/userGetallUsers.jsx"
+import useGetallUsers from "../../Context/useGetallUsers.jsx"
 function Users() {
 
   const [allUsers,setallUsers]=useGetallUsers();
@@ -9,7 +9,7 @@ function Users() {
   return (
     <>
 
-    <div className='max-h-[520px] overflow-y-auto  '> 
+    <div className='max-h-[520px] overflow-y-auto'> 
       
     {usersArray.length > 0 ? (
         usersArray.map((user, index) => <User key={index} user={user} />)

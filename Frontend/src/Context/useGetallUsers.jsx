@@ -18,6 +18,7 @@ function useGetAllUsers() {
             Authorization: `Bearer ${token}`,
           },
         });
+        
         setAllUsers(response.data);
         setLoading(false);
       } catch (error) {

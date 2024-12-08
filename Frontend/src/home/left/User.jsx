@@ -1,5 +1,6 @@
 import React from 'react'
-import UseConversation from '../../Statemanage/useConversation.js';
+import UseConversation from "../../Statemanage/UseConversation.js";
+import pic2 from "../../Picture/fbpic2.jpg";
 
 export default function User({user}) {
 
@@ -13,7 +14,7 @@ export default function User({user}) {
         
         <div className="avatar online">
             <div className="w-16 rounded-full">
-             <img src="https://shorturl.at/bKQRU" />
+             <img src={pic2} />
             </div>
         </div>
         <div className='py-2 '>

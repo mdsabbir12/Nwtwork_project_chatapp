@@ -33,13 +33,13 @@ function Get({message}) {
   const authuser= JSON.parse(localStorage.getItem("messenger"));
   const item=message.senderid===authuser.user._id;
   const chatname=item?"chat-end" :"chat-start";
-  const chatcolor= item?"bg-blue-400":"";
+  const chatcolor= item?"bg-blue-600":"";
   
     return (
         <>
           <div className="py-2 ">
             <div className={`chat ${chatname}`}>
-              <div className={`chat-bubble text-white ${chatcolor}  chat-bubble-info mx-3 max-w-[50%]`}>{message.message}</div>
+              <div className={`chat-bubble text-white ${chatcolor}  chat-bubble-accent mx-3 max-w-[50%]`}>{message.message}</div>
             </div>
           </div>
             
