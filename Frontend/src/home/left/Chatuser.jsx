@@ -5,23 +5,31 @@ import { IoCall } from "react-icons/io5";
 import { IoMdSearch } from "react-icons/io";
 import useConversation from "../../Statemanage/UseConversation.js";
 import pic from "../../Picture/fbpic.jpg";
+import { useSocketContext } from "../../Context/SocketContex.jsx";
 export default function Chatuser() {
 
 
   const {selectedConversation}=useConversation();
+
+  const { onlineUsers } = useSocketContext();
+  const getOnlineUsersStatus = (userId) => {
+    return onlineUsers.includes(userId) ? "Online" : "Offline";
+  };
+
+  
   //console.log(selectedConversation);
   return (
     <>
       <div className="flex bg-slate-600 justify-between">
         <div className="flex space-x-4 px-3 py-2">
-          <div className="avatar  online">
+          <div className="avatar online">
             <div className="w-16 rounded-full">
               <img src={pic} />
             </div>
           </div>
           <div className="py-2">
             <h1>{selectedConversation?.name}</h1>
-            <span className="text-[12px] text-color-gray "></span>
+            <span className="text-[12px] text-color-gray ">{getOnlineUsersStatus(selectedConversation?._id)}</span>
           </div>
         </div>
        

@@ -1,30 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import useGetMessage from "../../Context/useGetMessage.js";
 import Loading from "../../Component/Loading.jsx"
+import UserGetSocketmessage from "../../Context/UserGetSocketmessage.jsx";
 
 export default function Chatmessage() {
 
   const { messages,loading } = useGetMessage();
 
+  UserGetSocketmessage();
+
   console.log(messages);
+  const lastMsgRef = useRef();
+  useEffect(() => {
+    setTimeout(() => {
+      if (lastMsgRef.current) {
+        lastMsgRef.current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  }, [messages]);
   return (
 
 
     <>
-
-    {/* {loading?(<Loading/>):(messages.length>0 &&messages.map((message)=>{
-      return <Get key={message._id} message={message}/>
-    }))} */}
     <div className="max-h-[540px] overflow-y-auto ">
-    {loading?(<Loading/>):(messages.length>0 &&messages.map((message)=>{
-      return <Get key={message._id} message={message}/>
-    }))}
-      {/* <Get></Get> */}
-      {/* {messages.length > 0 ? messages.map(msg =>(
-        <p>{msg.message}</p>
-      )) : (<div>You have empty conversion!</div>)
-    } */}
+    {loading?(<Loading/>):(messages.length>0 &&messages.map((message)=>(
+      <div key={message._id} ref={lastMsgRef}>
+       <Get  message={message}/>
+       </div>
+    )))}
     </div>
+    {!loading && messages.length === 0 && (
+        <div>
+          <p className="text-center">
+            No conversation found!<br></br>
+            Say! Hi to start the conversation
+          </p>
+        </div>
+      )}
     </>
   );
 }

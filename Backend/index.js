@@ -5,9 +5,10 @@ import userRoute from "./route/user.route.js";
 import messageRoute from "./route/message.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import {app ,server} from "./Socketserver/server.js";
 
 
-const app = express();
+
 app.use(express.json());
 dotenv.config();
 app.use(cors({
@@ -31,6 +32,6 @@ try{
 app.use("/api/user",userRoute);
 app.use("/api/message",messageRoute);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is Running on port ${PORT}`)
 })

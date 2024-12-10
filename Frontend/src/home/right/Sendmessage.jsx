@@ -34,11 +34,11 @@ export default function Sendmessage() {
       <div className="text-4xl px-5">
         <button className=""><IoSend /></button> 
       </div>
-      <div className="flex space-x-3 ">
+      <div className="flex space-x-8 ">
         <div className="text-yellow-300 text-4xl p-1.5">
           <MdEmojiEmotions />
         </div>
-        <div className="flex space-x-5 text-3xl m-2">
+        <div className="flex space-x-9 text-3xl m-2">
           <div className="text-orange-400">
             <BsEmojiKiss />
           </div>
