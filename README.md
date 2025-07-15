@@ -18,14 +18,18 @@
 
 
 After all you can see this login pages 
-you can login by this 
+you can login by this
+
 sa40829789@gmail.com
+
 Rakibul Alam
+
 123
+
 
 ![image alt](https://github.com/mdsabbir12/Nwtwork_project_chatapp/blob/e751b19d6e853ff95f0ce06bb34f4538bbc07310/login.png)
 
 and After login you can see this Interface 
 
-![image alt](https://github.com/mdsabbir12/Nwtwork_project_chatapp/blob/e751b19d6e853ff95f0ce06bb34f4538bbc07310/login.png)
+![image alt](https://github.com/mdsabbir12/Nwtwork_project_chatapp/blob/ff4cf7cbe57e49bfa67e28296b06445018eaabaa/Home%20page.png)
 
