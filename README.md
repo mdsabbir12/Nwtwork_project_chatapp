@@ -1,3 +1,5 @@
+![image alt](https://github.com/mdsabbir12/Nwtwork_project_chatapp/blob/ff4cf7cbe57e49bfa67e28296b06445018eaabaa/Home%20page.png)
+
 # Network_lab_project
 1. Go to the code section of GitHub 
 2. Copy the link
